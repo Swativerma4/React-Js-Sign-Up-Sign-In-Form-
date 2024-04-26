@@ -1,0 +1,57 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background-color:whitesmoke;
+    transition: 0.5s;
+
+}
+.logo{
+    width: 200px;
+   padding-left:30px;
+    
+}
+
+ul{
+ 
+ 
+ 
+    flex: 1;
+    text-align: right;
+    
+    
+    
+}
+ul li{
+    display: inline-block;
+    margin: 30px 20px;
+    font-size: 19px;
+    cursor: pointer;
+     
+     margin-left: 50px;
+     
+}
+
+
+.toggle-icon{
+    width: 70px;
+    cursor: pointer;
+    margin-left: 50px;
+    padding-right:35px;
+  
+}
+
+
+
+
+
+.dark .navbar{
+    background-color: rgb(31, 31, 31);
+    color: white;
+}
+
+
+
+
+    
