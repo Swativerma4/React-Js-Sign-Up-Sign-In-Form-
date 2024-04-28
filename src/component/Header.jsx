@@ -13,13 +13,13 @@ export default function Header({theme,setTheme}) {
   return (
 
     <div className='navbar'>
-      <img src={theme=='light'?logo1:logo2} alt="" className='logo'></img>
+      <img src={theme==='light'?logo1:logo2} alt="" className='logo'></img>
         <ul type="none" >
           <li>Home</li>
           <li>Features</li>
           <li>About</li>
         </ul>
-        <img onClick={()=>{toggle_mode()}  }  src={theme=='light'? toggle2 :toggle1} alt=" " className='toggle-icon' ></img>
+        <img onClick={()=>{toggle_mode()}  }  src={theme==='light'? toggle2 :toggle1} alt=" " className='toggle-icon' ></img>
     </div>
 
   )
