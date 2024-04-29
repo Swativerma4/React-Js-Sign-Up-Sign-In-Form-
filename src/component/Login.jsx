@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import './Home.css'
 
-import { NavLink } from 'react-router-dom';
-export default function Home()
-{
+import React, {useState} from 'react'
+import { json, useNavigate } from 'react-router-dom';
 
+
+
+export default function Login() {
+    
+  const history =useNavigate();
   const [inpval,setInpval]=useState({
-    name:'',
+  
     email:"",
-    date:"",
+  
     password:""
   })
-  const[data,setData]=useState([]);
+    const[data,setData]=useState([]);
   console.log(inpval);
   const getdata = (e) => {
     const { value, name: inputName } = e.target; 
@@ -20,21 +22,19 @@ export default function Home()
       [inputName]: value
     });
   }
-   const adddata=(e)=>{
+   const addData=(e)=>{
   e.preventDefault();
-  const {name,email,date,password} =inpval;
-      if(name===''){
-        alert("Name field is required")
-      }
-      else if(email===''){
+  const getuserArr =localStorage.getItem("userinfo");
+  console.log(getuserArr);
+  const {email,password} =inpval;
+      
+      if(email===''){
         alert("Email field is required")
       }
       else if(!email.includes('@')){
         alert('please enter vaild email address')
       }
-      else if(date===''){
-        alert("date field is required")
-      }
+    
       else if( password===''){
         alert('password field is required')
       }
@@ -43,29 +43,38 @@ export default function Home()
  
   }
   else{
-    console.log('data added succesfully')
+    if(getuserArr && getuserArr.length){
+      const userdata= JSON.parse(getuserArr);
+     const userlogin=userdata.filter((el,k)=>{
+      return el.email===email&&el.password===password
+
+     })
+     if(userlogin.length===0){
+      alert("invalid details")
+     }else{
+      console.log('user login succesfully')
+      logcalStorage.setItem("user_login",JSON.stringify(userlogin))
+      history('/details')
+     }
+    }
+    
   }
-  localStorage.setItem("userinfo",JSON.stringify([...data,inpval]));
-         
+  
    }
+  
   return (
-    <div> 
+    
+      <div> 
     <div className='container'>
         <section className='display'>
             <div className='left_data'>
-                <h2 className='heading'>Sign Up</h2>
+                <h2 className='heading'>Sign In</h2>
                 <form>
-                    <div className='form-group'>
-                      <input type='text' name='name' onChange={getdata}  placeholder='Your Name'></input>
-                    </div>
-                    <div className='form-email'>
+                  
                     <div className='form-group'>
                       <input type='email'  name='email'  onChange={getdata}  placeholder='Your Email'></input>
                     </div>
-                    </div>  
-                    <div className='form-group'>
-                      <input  type='date' name='date' onChange={getdata}  placeholder='Your DOB'></input>
-                    </div>
+                    
                     <div className='form-group'>
                       <input type='password' name ='password' onChange={getdata} placeholder='Your Password'></input>
                     </div>
@@ -75,10 +84,10 @@ export default function Home()
                 </label>
               </div>
               <div className='submit'>
-                <button className='button' onClick={adddata}>Submit</button>
+                <button className='button' onClick={addData}>Submit</button>
               </div>
                 </form>
-                <p className='link'>Already Have an Account <span><NavLink to='/login'>SignIn</NavLink></span></p>
+                
             </div>
             <div className='right-data'>
               <div className='sign-img'>
