@@ -42,16 +42,11 @@ ul li{
     padding-right:35px;
   
 }
-
-
-
-
-
-.dark .navbar{
-    background-color: rgb(31, 31, 31);
+.dark .navbar {
+    background: rgb(31, 31, 31);
     color: white;
-}
-
+  }
+  
 
 
 

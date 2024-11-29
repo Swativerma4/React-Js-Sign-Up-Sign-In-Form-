@@ -37,9 +37,24 @@ input[type='email'] {
 
 .sign-img {
   width: 20%;
-  padding-top: 20%;
+  padding-top: 0%;
+ 
+  transition: all 0.3s ease-in-out;
 }
+.day-logo{
+  padding-top: 70%;
+  width:500%;
+  padding-left: 30%;
 
+}
+.night-logo {
+  padding-top: 0%;
+  filter: brightness(0.8);
+  width:500%;
+ 
+ 
+ 
+}
 .submit {
   padding-left: 74%;
 }
@@ -58,6 +73,9 @@ input[type='email'] {
 .button:hover {
   background-color: #32a06b;
 }
+.dark .toggle-button {
+  background-color: #6e7b81; /* Dark mode button background color */
+}
 .link{
   padding: 5%;
   padding-left: 20%;
@@ -67,8 +85,14 @@ input[type='email'] {
   width: 150%;
   
 }
+.light-mode {
+  background-color: #ffffff;
+}
 
-/* Media queries for responsiveness */
+.dark-mode {
+  background-color: #6e7b81;
+   }
+
 @media (max-width: 768px) {
   .left_data {
     width: 100%;

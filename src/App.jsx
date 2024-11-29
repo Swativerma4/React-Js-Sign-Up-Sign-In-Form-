@@ -12,12 +12,12 @@ function App() {
   
 const [theme,setTheme]=useState("light");
   return (
-    <div className={`container ${theme}`}>
+    <div className={`container ${theme === 'dark' ? 'dark-mode' : 'light-mode'}`}>
 
         <Header theme={theme} setTheme={setTheme}/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
+          <Route path="/" element={<Home theme={theme}/>}/>
+          <Route path='/login' element={<Login theme={theme}/>}/>
          
         </Routes>
       

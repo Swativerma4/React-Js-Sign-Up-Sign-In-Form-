@@ -12,9 +12,9 @@ export default function Header({theme,setTheme}) {
   }
   return (
 
-    <div className='navbar'>
+    <div className={`navbar ${theme === 'dark' ? 'dark' : ''}`}>
       <img src={theme==='light'?logo1:logo2} alt="" className='logo'></img>
-        <ul type="none" >
+        <ul type="none">
           <li>Home</li>
           <li>Features</li>
           <li>About</li>
